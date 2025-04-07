@@ -23,13 +23,13 @@ Como identificar grupos de municípios com características semelhantes em rela�
 - Jupyter Notebook
 - QGIS (para visualização geoespacial)
 
-## 🗽️ Visualização Geoespacial
+## 🌍 Visualização Geoespacial
 
 Para representar visualmente os clusters gerados pelo K-Means, foi utilizado o **QGIS**, um software de código aberto para análise geoespacial. Através dele, foi criado um mapa do Brasil com os agrupamentos municipais, facilitando a interpretação regional dos dados.
 
 Essa visualização reforça a aplicabilidade do modelo em contextos reais de planejamento territorial e políticas públicas.
 
-### 🌍 Dados Geoespaciais
+### 📍 Dados Geoespaciais
 
 Para a criação do mapa com os clusters de municípios, foram utilizados arquivos **Shapefile** oficiais de municípios brasileiros, posteriormente integrados com os resultados do modelo de K-Means.
 
