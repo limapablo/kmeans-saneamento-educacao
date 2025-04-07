@@ -77,6 +77,5 @@ Bachelor in Business Administration - UFRRJ
 
 ---
 
-![SIMEP](https://www.simep.com.br/imagens/simep_icone.webp) ![MBA USP/ESALQ](https://mbauspesalq.com/_next/image?url=%2Fassets%2Flogo.svg&w=128&q=75)
 
 🗓️ Paper accepted for publication at SIMEP 2025 ✨
