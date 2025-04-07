@@ -80,7 +80,7 @@ Bacharel em Administração - UFRRJ
 
 ---
 
-![SIMEP](https://www.simep.com.br/imagens/simep_icone.webp) ![MBA USP/ESALQ](https://mbauspesalq.com/_next/image?url=%2Fassets%2Flogo.svg&w=128&q=75)
+
 
 🗓️ Artigo aceito para publicação no SIMEP 2025 ✨
 
