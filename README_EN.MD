@@ -49,9 +49,6 @@ These files are available in the `data/geoespacial/` folder and can be used with
 │   └── geoespacial/
 ├── imagens/
 │   └── mapa_clusters.png
-├── documentacao/
-│   ├── TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf
-│   └── Artigo_SIMEP2025_KMeans_Saneamento_Educacao.pdf
 ├── README.md
 └── README_EN.md
 ```
@@ -64,9 +61,7 @@ These files are available in the `data/geoespacial/` folder and can be used with
 ## 📄 Additional Documentation
 
 This project is based on the Capstone Project of the MBA in Data Science & Analytics (USP/ESALQ) and a paper accepted for publication at the Simpósio de Engenharia de Produção (SIMEP 2025).
-
-📌 [`TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf`](documentacao/TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf)  
-📌 [`Paper_SIMEP2025_KMeans_Sanitation_Education.pdf`](documentacao/Artigo_SIMEP2025_KMeans_Saneamento_Educacao.pdf) *(to be officially published in May 2025)*  
+  
 📌 [`Acceptance Letter - SIMEP 2025`](https://www.even3.com.br/participante/impressao/_impressaocartadeaceite?code=1068040)
 
 ## 👤 Author
