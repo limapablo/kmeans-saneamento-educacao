@@ -52,9 +52,7 @@ A partir disso, um novo shapefile foi gerado contendo o rótulo do cluster para 
 │   └── geoespacial/
 ├── imagens/
 │   └── mapa_clusters.png
-├── documentacao/
-│   ├── TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf
-│   └── Artigo_SIMEP2025_KMeans_Saneamento_Educacao.pdf
+│   
 ├── README.md
 └── README_EN.md
 ```
@@ -68,8 +66,7 @@ A partir disso, um novo shapefile foi gerado contendo o rótulo do cluster para 
 
 Este projeto é derivado do Trabalho de Conclusão de Curso do MBA em Data Science & Analytics da USP/ESALQ e do artigo aceito para publicação no Simpósio de Engenharia de Produção (SIMEP 2025).
 
-📌 [`TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf`](documentacao/TCC_MBA_DataScience_USP_ESALQ_PabloLima.pdf)\
-📌 [`Artigo_SIMEP2025_KMeans_Saneamento_Educacao.pdf`](documentacao/Artigo_SIMEP2025_KMeans_Saneamento_Educacao.pdf) *(a ser publicado oficialmente em maio de 2025)*\
+
 📌 [`Carta de Aceite - SIMEP 2025`](https://www.even3.com.br/participante/impressao/_impressaocartadeaceite?code=1068040)
 
 ## 👤 Autor
