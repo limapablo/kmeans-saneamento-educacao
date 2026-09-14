@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated scientific article and this software repository."
+title: "Municipal Sanitation & Education Clustering in Brazil"
+type: software
+authors:
+  - family-names: "Lima"
+    given-names: "Pablo Henrique da Silva"
+repository-code: "https://github.com/limapablo/kmeans-saneamento-educacao"
+url: "https://github.com/limapablo/kmeans-saneamento-educacao"
+license: MIT
+keywords:
+  - k-means
+  - clustering
+  - data science
+  - sanitation
+  - education
+  - Brazil
+  - geospatial analysis
+  - public policy
+references:
+  - type: article
+    authors:
+      - family-names: "Lima"
+        given-names: "Pablo Henrique da Silva"
+    doi: "10.29327/23189258.1068040"
+    notes: "Scientific article derived from the MBA capstone project and associated with SIMEP 2025."
