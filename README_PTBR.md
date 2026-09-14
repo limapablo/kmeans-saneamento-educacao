@@ -6,43 +6,97 @@
 [![DOI](https://img.shields.io/badge/DOI-10.29327%2F23189258.1068040-blue)](https://doi.org/10.29327/23189258.1068040)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> Estudo aplicado de ciência de dados que utiliza **clusterização K-Means** e análise geoespacial para identificar padrões entre municípios brasileiros a partir de indicadores de saneamento e educação.
+> Pesquisa aplicada de ciência de dados utilizando **clusterização K-Means, análise de correlação e interpretação geoespacial** para identificar padrões de saneamento e educação nos municípios brasileiros.
 
-**Origem acadêmica:** este repositório nasceu do meu **Trabalho de Conclusão de Curso (TCC) do MBA em Data Science & Analytics da USP/ESALQ**. Posteriormente, o trabalho evoluiu para um **artigo científico**, associado ao SIMEP 2025, com DOI **[10.29327/23189258.1068040](https://doi.org/10.29327/23189258.1068040)**.
+**Origem acadêmica:** este repositório foi desenvolvido a partir do meu **TCC do MBA em Data Science & Analytics da USP/ESALQ**. Posteriormente, o trabalho evoluiu para o artigo científico **“Saneamento e Educação: Explorando Padrões em Municípios Brasileiros através de Clusterização”**, apresentado no XIII Simpósio de Engenharia de Produção (SIMEP) em 2025.
 
+**Artigo publicado:** [10.29327/23189258.1068040](https://doi.org/10.29327/23189258.1068040)  
+**Case study no portfólio:** [limapablo.com/projects/sanitation-education-clustering/](https://limapablo.com/projects/sanitation-education-clustering/)  
 [Read in English](README.MD)
 
 ---
 
-## Visão Geral
+## Pergunta de Pesquisa
 
-A análise de políticas públicas frequentemente exige comparar municípios com realidades muito diferentes em infraestrutura, educação e condições socioeconômicas. Este projeto investiga se técnicas de aprendizado não supervisionado podem organizar parte dessa complexidade em grupos interpretáveis.
+> É possível agrupar municípios brasileiros em perfis significativos com base em indicadores de saneamento e educação, de forma a evidenciar desigualdades territoriais e apoiar análises de políticas públicas mais direcionadas?
 
-A análise aplica **K-Means** a indicadores municipais relacionados a saneamento básico e educação e, em seguida, integra os clusters obtidos à malha municipal brasileira para interpretação espacial.
+## Dados e Escopo
 
-### Pergunta de pesquisa
+A amostra analítica contém **5.556 municípios brasileiros** após a remoção de observações com dados ausentes.
 
-> É possível agrupar municípios brasileiros em perfis significativos com base em indicadores de saneamento e educação, de forma a apoiar análises territoriais e de políticas públicas mais direcionadas?
+Os indicadores socioeconômicos são baseados em dados do **Censo 2010 / Atlas do Desenvolvimento Humano**. A visualização geoespacial utiliza a **Malha Municipal 2023 do IBGE** apenas para representar os limites municipais.
 
-## Objetivos
+### Variáveis
 
-- Identificar grupos de municípios com perfis semelhantes de saneamento e educação.
-- Aplicar um fluxo completo de machine learning não supervisionado sobre dados públicos.
-- Interpretar os clusters no contexto socioeconômico real.
-- Visualizar a distribuição geográfica dos agrupamentos pelo território brasileiro.
-- Demonstrar o uso de ciência de dados como apoio à análise exploratória de políticas públicas.
+**Saneamento**
+- população com acesso à água encanada;
+- população vivendo em domicílios com banheiro e água encanada;
+- população urbana com acesso à coleta de lixo.
+
+**Educação**
+- subíndice de frequência escolar do IDHM;
+- subíndice de escolaridade do IDHM;
+- percentual de estudantes de 6 a 14 anos com dois ou mais anos de atraso idade-série.
+
+Como análise complementar, foi incorporada uma variável de renda — renda per capita média do quarto quinto mais pobre — para contextualizar diferenças socioeconômicas entre os clusters.
 
 ## Metodologia
 
-O projeto segue um fluxo analítico de ponta a ponta:
+1. **Preparação dos dados** — limpeza, conversão de tipos, transformação de percentuais e remoção de observações incompletas com Pandas.
+2. **Padronização das variáveis** — normalização por Z-score com `StandardScaler`, do Scikit-learn.
+3. **Avaliação do número de clusters** — utilização do **Método da Silhueta** e do **Método do Cotovelo**.
+4. **Clusterização** — aplicação do **K-Means** com três clusters.
+5. **Interpretação estatística** — análise de correlação de Pearson e comparação dos indicadores por cluster.
+6. **Visualização** — boxplots, relações entre variáveis e resumos regionais com Matplotlib e Seaborn.
+7. **Integração geoespacial** — associação dos rótulos dos clusters à malha municipal brasileira e análise no QGIS.
+8. **Contextualização socioeconômica** — comparação com indicador de renda para observar sobreposição de vulnerabilidades.
 
-1. **Aquisição dos dados** — obtenção de indicadores municipais em fontes públicas.
-2. **Preparação dos dados** — limpeza, integração, seleção de variáveis e pré-processamento.
-3. **Escalonamento das variáveis** — normalização antes da clusterização baseada em distância.
-4. **Clusterização** — aplicação do algoritmo K-Means.
-5. **Interpretação dos clusters** — comparação dos perfis municipais segundo os indicadores selecionados.
-6. **Integração geoespacial** — associação dos rótulos dos clusters à malha municipal oficial.
-7. **Visualização espacial** — construção e interpretação do mapa no QGIS.
+## Principais Resultados
+
+Os 5.556 municípios foram agrupados em três perfis analíticos:
+
+| Cluster | Municípios | Perfil geral |
+| --- | ---: | --- |
+| **0** | 2.018 | Condições intermediárias de saneamento e educação, com maior variabilidade. |
+| **1** | 860 | Perfil de maior vulnerabilidade, combinando infraestrutura sanitária mais precária e piores indicadores educacionais. |
+| **2** | 2.678 | Perfil mais favorável, com melhor acesso a saneamento, frequência escolar e indicadores educacionais. |
+
+### Padrão regional
+
+- **Cluster 0** apresenta maior presença no Nordeste.
+- **Cluster 1** aparece com maior força na região Norte.
+- **Cluster 2** é fortemente representado no Sul e Sudeste.
+
+Esses padrões evidenciam como desigualdades de infraestrutura e educação se sobrepõem territorialmente no Brasil.
+
+### Principais achados analíticos
+
+- Municípios com melhor infraestrutura de saneamento tenderam a apresentar melhores indicadores educacionais.
+- O Cluster 2 apresentou maior acesso à água encanada e coleta de lixo, melhores indicadores de frequência/escolaridade e menor atraso idade-série.
+- O Cluster 1 concentrou os piores indicadores de saneamento e educação.
+- Frequência escolar e atraso idade-série apresentaram forte associação negativa: menor frequência coincidiu com maior atraso.
+- A análise complementar de renda reforçou o padrão geral: municípios de maior renda tenderam a apresentar melhores condições de saneamento e educação.
+
+## Resultado Geoespacial
+
+![Clusters municipais no Brasil](imagens/mapa_clusters.png)
+
+Os artefatos geoespaciais estão disponíveis em `data/geospacial/`, incluindo o projeto do QGIS e os arquivos componentes do shapefile gerado.
+
+## Interpretação
+
+Este projeto deve ser entendido como uma **análise exploratória e associativa**. K-Means e correlação de Pearson permitem identificar estruturas e relações nos dados observados, mas **não estabelecem relações causais** entre saneamento e desempenho educacional.
+
+Os clusters podem apoiar interpretação territorial e priorização, mas não devem ser tratados como classificações definitivas ou recomendações diretas de política pública.
+
+## Limitações
+
+- Os indicadores socioeconômicos são baseados em **dados de 2010**.
+- Os resultados dependem da seleção de variáveis, do escalonamento e da escolha do número de clusters.
+- O K-Means assume uma estrutura de agrupamento baseada em distância e pode não capturar todos os padrões socioeconômicos existentes.
+- A análise identifica associação, não causalidade.
+
+Entre as extensões propostas no próprio trabalho estão o uso de dados censitários mais recentes, inclusão de variáveis como saúde, emprego e acesso à tecnologia, métodos de machine learning mais avançados e simulações preditivas de cenários de políticas públicas integradas.
 
 ## Tecnologias
 
@@ -50,19 +104,10 @@ O projeto segue um fluxo analítico de ponta a ponta:
 | --- | --- |
 | Análise de dados | Python, Pandas |
 | Machine Learning | scikit-learn, K-Means |
+| Análise estatística | Correlação de Pearson |
 | Visualização | Matplotlib, Seaborn |
 | Análise geoespacial | QGIS, Shapefile |
 | Ambiente de desenvolvimento | Jupyter Notebook |
-
-## Resultado Geoespacial
-
-Os rótulos dos clusters foram associados às geometrias municipais brasileiras, gerando uma camada geoespacial que pode ser explorada no QGIS ou em outra ferramenta SIG.
-
-![Clusters municipais no Brasil](imagens/mapa_clusters.png)
-
-Os artefatos geoespaciais estão disponíveis em `data/geospacial/`, incluindo o projeto do QGIS e os arquivos que compõem o shapefile municipal gerado.
-
-A malha municipal utilizada no estudo foi baseada na **Malha Municipal 2023 do IBGE**.
 
 ## Estrutura do Repositório
 
@@ -82,6 +127,7 @@ A malha municipal utilizada no estudo foi baseada na **Malha Municipal 2023 do I
 ├── .gitattributes
 ├── .gitignore
 ├── CITATION.cff
+├── CITATION.md
 ├── LICENSE
 ├── README.MD
 ├── README_PTBR.md
@@ -90,23 +136,11 @@ A malha municipal utilizada no estudo foi baseada na **Malha Municipal 2023 do I
 
 ## Como Reproduzir
 
-Clone o repositório e crie um ambiente Python:
-
 ```bash
 git clone https://github.com/limapablo/kmeans-saneamento-educacao.git
 cd kmeans-saneamento-educacao
 python -m venv .venv
-```
-
-Ative o ambiente e instale as dependências:
-
-```bash
 pip install -r requirements.txt
-```
-
-Abra o notebook:
-
-```bash
 jupyter notebook notebook/kmeans_saneamento_educacao.ipynb
 ```
 
@@ -116,32 +150,22 @@ Para a parte espacial, abra `data/geospacial/mapa_clusters.qgz` no QGIS.
 
 ## Contexto Acadêmico e Publicação
 
-Este projeto teve origem no **TCC do MBA em Data Science & Analytics da USP/ESALQ**.
+Este projeto teve origem no **TCC do MBA em Data Science & Analytics da USP/ESALQ** e posteriormente se tornou um artigo científico assinado por **Pablo Henrique da Silva Lima** e **Miguel Ângelo Lellis Moreira**.
 
-O estudo posteriormente evoluiu para um artigo científico associado ao **SIMEP 2025 — Simpósio de Engenharia de Produção**.
-
-- **DOI do artigo:** [10.29327/23189258.1068040](https://doi.org/10.29327/23189258.1068040)
+- **Artigo:** *Saneamento e Educação: Explorando Padrões em Municípios Brasileiros através de Clusterização*
+- **Evento:** XIII Simpósio de Engenharia de Produção — SIMEP, 2025
+- **DOI:** [10.29327/23189258.1068040](https://doi.org/10.29327/23189258.1068040)
 - **Carta de aceite do SIMEP 2025:** [visualizar documento](https://www.even3.com.br/participante/impressao/_impressaocartadeaceite?code=1068040)
-
-Assim, o repositório funciona tanto como **projeto técnico de portfólio** quanto como **registro computacional de uma pesquisa acadêmica**.
 
 ## Competências Demonstradas
 
-Do ponto de vista de portfólio, o projeto demonstra experiência em:
-
 - análise exploratória e pré-processamento de dados;
 - machine learning não supervisionado;
-- escalonamento de variáveis e workflows de clusterização;
-- interpretação de resultados de modelos em contexto real;
-- integração entre dados tabulares e geoespaciais;
-- comunicação de resultados por mapas e visualizações;
-- aplicação de ciência de dados a problemas públicos e socioeconômicos.
-
-## Limitações
-
-O K-Means é uma técnica exploratória de clusterização e não estabelece relações causais entre saneamento e desempenho educacional. Os resultados também são sensíveis à seleção de variáveis, ao escalonamento e ao número de clusters escolhido.
-
-Os agrupamentos devem, portanto, ser interpretados como **perfis analíticos**, e não como classificações definitivas ou recomendações diretas de política pública.
+- validação e interpretação de clusters;
+- análise estatística de correlação;
+- integração geoespacial e análise territorial;
+- comunicação de resultados em contexto acadêmico e de políticas públicas;
+- atenção a limitações metodológicas e interpretação não causal.
 
 ## Autor
 
@@ -149,12 +173,24 @@ Os agrupamentos devem, portanto, ser interpretados como **perfis analíticos**, 
 MBA em Data Science & Analytics — USP/ESALQ  
 Bacharel em Administração — UFRRJ
 
+- [Portfólio](https://limapablo.com)
 - [LinkedIn](https://www.linkedin.com/in/limapablo/)
 - [GitHub](https://github.com/limapablo)
+- [ORCID](https://orcid.org/0009-0007-6456-6993)
 
 ## Como Citar
 
-Caso este repositório seja útil em trabalhos acadêmicos, cite o artigo associado pelo DOI **10.29327/23189258.1068040** e/ou utilize os metadados disponíveis em [`CITATION.cff`](CITATION.cff).
+Se você utilizar os **resultados, metodologia ou conclusões da pesquisa**, cite o artigo publicado. Referências prontas estão disponíveis nos formatos:
+
+- **ABNT**
+- **APA 7ª edição**
+- **Chicago Author–Date**
+- **IEEE**
+- **BibTeX**
+
+Veja [`CITATION.md`](CITATION.md) para todos os formatos.
+
+Se você reutilizar especificamente o **código, notebook ou artefatos do repositório**, o GitHub também pode gerar uma citação de software a partir do arquivo [`CITATION.cff`](CITATION.cff).
 
 ## Licença
 
