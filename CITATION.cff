@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the associated scientific article and this software repository."
+message: "If you use this repository, please cite the associated scientific article and, when relevant, this software repository."
 title: "Municipal Sanitation & Education Clustering in Brazil"
 type: software
 authors:
@@ -18,9 +18,13 @@ keywords:
   - geospatial analysis
   - public policy
 references:
-  - type: article
+  - type: conference-paper
+    title: "Saneamento e Educação: Explorando Padrões em Municípios Brasileiros através de Clusterização"
     authors:
       - family-names: "Lima"
         given-names: "Pablo Henrique da Silva"
+      - family-names: "Moreira"
+        given-names: "Miguel Ângelo Lellis"
+    year: 2025
     doi: "10.29327/23189258.1068040"
-    notes: "Scientific article derived from the MBA capstone project and associated with SIMEP 2025."
+    notes: "Published research derived from the MBA capstone project and presented at the XIII Simpósio de Engenharia de Produção (SIMEP), 2025."
